@@ -1,26 +1,37 @@
+<link rel="stylesheet" href="../assets/css/quanlydienke.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    h1 {
+        margin: 10px auto;
+        text-align: center;
+    }
+</style>
 <?php
 session_start();
 
 if (isset($_SESSION['id_nv'])) {
     ?>
-    <button><a href="../controller/tiendien.php?act=quanly">Quay lại</a></button>
+    <button class="button"><a href="../controller/tiendien.php?act=quanly">Quay lại</a></button>
 
     <div>
         <form action="../view/themkhachhang.php" method="post">
-            <input type="submit" value="Thêm khách hàng">
+            <input type="submit" value="Thêm khách hàng" class="button"
+                style="color:white ; font-weight: bold; margin-top:10px; width:170px;cursor:pointer">
         </form>
     </div>
 
     <h2>Tìm kiếm khách hàng</h2>
-    <form id="searchForm">
-        <div>
+    <form id="searchForm" class="ffff">
+        <div class="aa">
             <b>Tìm theo mã</b>
-            <input name="searchKH" type="radio" value="0" onclick="chosseSearch_KH();" <?php if (!isset($search_KH_by_Name))
+            <input class="cir" name="searchKH" type="radio" value="0" onclick="chosseSearch_KH();" <?php if (!isset($search_KH_by_Name))
                 echo "checked"; ?>>
         </div>
-        <div>
+        <div class="bb">
             <b>Tìm theo tên</b>
-            <input name="searchKH" type="radio" value="1" onclick="chosseSearch_KH();" <?php if (isset($search_KH_by_Name))
+            <input class="cir" name="searchKH" type="radio" value="1" onclick="chosseSearch_KH();" <?php if (isset($search_KH_by_Name))
                 echo "checked"; ?>>
         </div>
 
@@ -28,13 +39,13 @@ if (isset($_SESSION['id_nv'])) {
             echo "block";
         else
             echo "none"; ?>;">
-            <input type="text" id="makh" name="makh" placeholder="Nhập mã khách hàng...">
+            <input type="text" id="makh" name="makh" class="aaaa" placeholder="Nhập mã khách hàng...">
         </div>
         <div id="search_By_Name" style="display: <?php if (isset($search_KH_by_Name))
             echo "block";
         else
             echo "none"; ?>;">
-            <input type="text" id="nameKH" name="nameKH" placeholder="Nhập tên khách hàng...">
+            <input type="text" id="nameKH" name="nameKH" class="aaaa" placeholder="Nhập tên khách hàng...">
         </div>
     </form>
     <div id="searchResults"></div>
@@ -62,7 +73,7 @@ if (isset($_SESSION['id_nv'])) {
         ?>
 
         <h1>Danh sách khách hàng</h1>
-        <table border='1'>
+        <table border='1' style="border-collapse: collapse">
             <tr>
                 <th>Mã KH</th>
                 <th>Tên KH</th>
@@ -79,11 +90,11 @@ if (isset($_SESSION['id_nv'])) {
                     <td><?php echo $khachhang['dt']; ?></td>
                     <td><?php echo $khachhang['cccd']; ?></td>
                     <td>
-                        <a href="../view/suakhachhang.php?makh=<?php echo $khachhang['makh']; ?>">Sửa</a>
+                        <button class="sua" href="../view/suakhachhang.php?makh=<?php echo $khachhang['makh']; ?>">Sửa</button>
                     </td>
                     <?php if (!checkXoaKH($khachhang['makh'])) { ?>
-                        <td><a href="../controller/xuly_xoaKH.php?makh=<?php echo $khachhang['makh']; ?>"
-                                onclick="return confirm('Bạn có chắc chắn muốn xóa khách hàng này không?')">Xóa</a></td>
+                        <td><button class="xoa" href="../controller/xuly_xoaKH.php?makh=<?php echo $khachhang['makh']; ?>"
+                                onclick="return confirm('Bạn có chắc chắn muốn xóa khách hàng này không?')">Xóa</button></td>
                     <?php } else { ?>
                         <td>Không thể xóa khách hàng do đã tồn tại hóa đơn.</td>
                     <?php } ?>
@@ -98,7 +109,7 @@ if (isset($_SESSION['id_nv'])) {
         echo '<div></div>
                 <div>';
         if ($currentPage > 1) {
-            echo '<a href="?act=quanlykhachhang&p=' . ($currentPage - 1) . '&size=' . $listsPerPage . '">&lt;</a>';
+            echo '<a class="navi" href="?act=quanlykhachhang&p=' . ($currentPage - 1) . '&size=' . $listsPerPage . '">&lt;</a>';
         }
         // Tính & hiện các liên kết phân trang
         $start = max(1, $currentPage - 1);
@@ -107,11 +118,11 @@ if (isset($_SESSION['id_nv'])) {
             if ($i == $currentPage) {
                 echo '<span >' . $i . '</span>';
             } else {
-                echo '<a href="?act=quanlykhachhang&p=' . $i . '&size=' . $listsPerPage . '">' . $i . '</a>';
+                echo '<a class="navi" href="?act=quanlykhachhang&p=' . $i . '&size=' . $listsPerPage . '">' . $i . '</a>';
             }
         }
         if ($currentPage < $totalPages) {
-            echo '<a href="?act=quanlykhachhang&p=' . ($currentPage + 1) . '&size=' . $listsPerPage . '">&gt;</a>';
+            echo '<a class="navi" href="?act=quanlykhachhang&p=' . ($currentPage + 1) . '&size=' . $listsPerPage . '">&gt;</a>';
         }
         echo '</div>';
     }

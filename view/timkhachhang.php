@@ -1,19 +1,23 @@
+<link rel="stylesheet" href="../assets/css/quanlydienke.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <?php
 
 if (isset($_SESSION['id_nv'])) {
     ?>
-    <link rel="stylesheet" href="../assets/css/quanlydien.css">
-    <div>
+
+    <div class="tim">
         <h2>Tìm kiếm khách hàng</h2>
-        <form action="" method="post">
-            <div>
+        <form action="" method="post" class="ffff">
+            <div class="aa" style="width: 300px;">
                 <b>Tìm theo mã</b>
-                <input name="searchKH" type="radio" value="0" onclick="chosseSearch_KH();" <?php if (!isset($search_KH_by_Name))
+                <input class="cir" name="searchKH" type="radio" value="0" onclick="chosseSearch_KH();" <?php if (!isset($search_KH_by_Name))
                     echo "checked"; ?>>
             </div>
-            <div>
+            <div class="bb">
                 <b>Tìm theo tên</b>
-                <input name="searchKH" type="radio" value="1" onclick="chosseSearch_KH();" <?php if (isset($search_KH_by_Name))
+                <input class="cir" name="searchKH" type="radio" value="1" onclick="chosseSearch_KH();" <?php if (isset($search_KH_by_Name))
                     echo "checked"; ?>>
             </div>
 
@@ -21,17 +25,15 @@ if (isset($_SESSION['id_nv'])) {
                 echo "block";
             else
                 echo "none"; ?>;">
-                <label for="makh">Mã khách hàng:</label>
-                <input type="text" id="makh" name="makh" placeholder="Nhập mã khách hàng...">
+                <input type="text" id="makh" name="makh" class="aaaa" placeholder="Nhập mã khách hàng...">
             </div>
             <div id="search_By_Name" style="display: <?php if (isset($search_KH_by_Name))
                 echo "block";
             else
                 echo "none"; ?>;">
-                <label for="makh">Tên khách hàng:</label>
-                <input type="text" id="nameKH" name="nameKH" placeholder="Nhập tên khách hàng...">
+                <input type="text" id="nameKH" name="nameKH" class="aaaa" placeholder="Nhập tên khách hàng...">
             </div>
-            <input type="submit" name="searchCustomer" value="Tìm kiếm">
+            <input type="submit" class='xem' name="searchCustomer" value="Tìm kiếm" style="position:relative;left:390px; ">
         </form>
     </div>
 
@@ -41,7 +43,7 @@ if (isset($_SESSION['id_nv'])) {
         if ($search_KH && !empty($search_KH)) {
             echo 'Tìm thấy khách hàng có mã: ' . $makh;
 
-            echo ' <table>
+            echo ' <table border="1">
                 <tr>
                     <th>Tên KH</th>
                     <th>Địa chỉ</th>
@@ -55,7 +57,7 @@ if (isset($_SESSION['id_nv'])) {
                     <td>" . $rows['diachi'] . "</td>
                     <td>" . $rows['dt'] . "</td>
                     <td>" . $rows['cccd'] . "</td>
-                    <td><button id='button_" . $rows['makh'] . "' onclick=\"showDienKe('" . $rows['makh'] . "')\">Xem</button></td>
+                    <td><button  class='xem' id='button_" . $rows['makh'] . "' onclick=\"showDienKe('" . $rows['makh'] . "')\">Xem</button></td>
                     </tr>";
                 echo "<tr id='dienke_row_" . $rows['makh'] . "' style='display: none;'>
                     <td colspan='6'>
@@ -63,7 +65,7 @@ if (isset($_SESSION['id_nv'])) {
                 if (isset($rows['dienke'])) {
                     echo "<h2>Thông tin điện kế Mã khách hàng: " . $rows['makh'] . "</h2>
                     <form id='hoadon' method='post' action='../controller/tiendien.php?act=tinhdien' onsubmit='return kiemTraChon()'> 
-                        <table id='dienke_table_" . $rows['makh'] . "'>
+                        <table border='1' id='dienke_table_" . $rows['makh'] . "'>
                             <tr>
                                 <th>Mã ĐK</th>
                                 <th>Mã KH</th>
@@ -95,7 +97,7 @@ if (isset($_SESSION['id_nv'])) {
                         ";
                     }
                     echo "</table>
-                        <input type='submit' name='submit_button' id='submit_button' value='Lập hóa đơn'>
+                        <input type='submit'  class='add' name='submit_button' id='submit_button' value='Lập hóa đơn'>
                         </form>";
                 }
                 echo "</div>
@@ -128,7 +130,7 @@ if (isset($_SESSION['id_nv'])) {
                     <td>" . $rows['diachi'] . "</td>
                     <td>" . $rows['dt'] . "</td>
                     <td>" . $rows['cccd'] . "</td>
-                    <td><button id='button_" . $rows['makh'] . "' onclick=\"showDienKe('" . $rows['makh'] . "')\">Xem</button></td>
+                    <td><button  class='xem' id='button_" . $rows['makh'] . "' onclick=\"showDienKe('" . $rows['makh'] . "')\">Xem</button></td>
                     </tr>";
                 echo "<tr id='dienke_row_" . $rows['makh'] . "' style='display: none;'>
                     <td colspan='6'>
@@ -168,7 +170,7 @@ if (isset($_SESSION['id_nv'])) {
                         ";
                     }
                     echo "</table>
-                        <input type='submit' name='submit_button' id='submit_button' value='Lập hóa đơn'>
+                        <input type='submit'  class='add' name='submit_button' id='submit_button' value='Lập hóa đơn'>
                         </form>";
                 }
                 echo "</div>

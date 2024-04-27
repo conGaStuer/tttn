@@ -147,7 +147,7 @@
             }
             echo '</table>';
         } else {
-            echo 'Không tìm thấy khách hàng trong CSDL';
+            echo '<span style="position:relative;left:400px">Không tìm thấy khách hàng trong CSDL.</span>';
         }
     }
 
@@ -234,7 +234,7 @@
             }
             echo '</table>';
         } else {
-            echo 'Không tìm thấy khách hàng trong CSDL.';
+            echo '<span style="position:relative;left:400px">Không tìm thấy khách hàng trong CSDL.</span>';
         }
     }
     ?>

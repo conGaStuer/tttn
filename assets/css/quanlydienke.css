@@ -41,7 +41,7 @@ h2 {
   width: 200px;
 }
 .aaaa {
-  width: 60%;
+  width: 45%;
   height: 50px;
   position: relative;
   top: -40px;
@@ -50,6 +50,7 @@ h2 {
 table {
   width: 90%;
   margin: 50px auto;
+  border-collapse: collapse;
 }
 table td {
   text-align: center;
@@ -99,5 +100,9 @@ table th {
 }
 .xoa {
   background-color: rgb(31, 61, 87);
+  color: white;
+}
+.btnn {
+  margin-top: 10px;
   color: white;
 }
