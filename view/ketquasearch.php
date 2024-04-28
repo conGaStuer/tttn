@@ -1,11 +1,8 @@
-<link rel="stylesheet" href="../assets/css/quanlydienke.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /><?php
-    session_start();
+<?php
+session_start();
 
-    if (isset($_SESSION['id_nv'])) {
-        ?>
+if (isset($_SESSION['id_nv'])) {
+    ?>
     <?php
     if (isset($search_DH)) {
         if ($search_DH && !empty($search_DH)) {
@@ -237,7 +234,7 @@
             echo '<span style="position:relative;left:400px">Không tìm thấy khách hàng trong CSDL.</span>';
         }
     }
-    ?>
+?>
 <?php
 
 } else {

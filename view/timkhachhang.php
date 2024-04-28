@@ -1,7 +1,30 @@
-<link rel="stylesheet" href="../assets/css/quanlydienke.css">
+<link rel="stylesheet" href="../assets/css/quanlydienke.css?v=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .out {
+        position: relative;
+        top: 70px;
+        width: 150px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .out a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .b {
+        position: relative;
+        left: 70px;
+    }
+</style>
 <?php
 
 if (isset($_SESSION['id_nv'])) {
@@ -41,7 +64,7 @@ if (isset($_SESSION['id_nv'])) {
     <?php
     if (isset($search_KH)) {
         if ($search_KH && !empty($search_KH)) {
-            echo 'Tìm thấy khách hàng có mã: ' . $makh;
+            echo '<b class="b">Tìm thấy khách hàng có mã: ' . $makh . '</b>';
 
             echo ' <table border="1">
                 <tr>
@@ -106,7 +129,7 @@ if (isset($_SESSION['id_nv'])) {
             }
             echo '</table>';
         } else {
-            echo 'Không tìm thấy khách hàng có mã ' . $makh . ' trong CSDL';
+            echo '<b class="b"> Không tìm thấy khách hàng có mã ' . $makh . ' trong CSDL</b>';
         }
 
     }
@@ -115,7 +138,7 @@ if (isset($_SESSION['id_nv'])) {
     <?php
     if (isset($search_KH_by_Name)) {
         if ($search_KH_by_Name && !empty($search_KH_by_Name)) {
-            echo 'Tìm thấy các khách hàng có tên: ' . $tenkh;
+            echo '<b class="b">Tìm thấy các khách hàng có tên: ' . $tenkh . '</b>';
             echo ' <table>
                 <tr>
                     <th>Tên KH</th>
@@ -179,13 +202,13 @@ if (isset($_SESSION['id_nv'])) {
             }
             echo '</table>';
         } else {
-            echo 'Không tìm thấy khách hàng có tên ' . $tenkh . ' trong CSDL';
+            echo '<b class="b">Không tìm thấy khách hàng có tên ' . $tenkh . ' trong CSDL</b>';
         }
 
     }
     ?>
     <br>
-    <button><a href="../controller/tiendien.php?act=quanly">Thoát</a></button>
+    <button class="out"><a href="../controller/tiendien.php?act=quanly">Thoát</a></button>
 
     <script src="../assets/js/dienkekh.js"></script>
     <script src="../assets/js/timkhachhang.js"></script>

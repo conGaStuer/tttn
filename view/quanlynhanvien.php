@@ -1,6 +1,67 @@
+<link rel="stylesheet" href="../assets/css/quanlyhoadon.css?v=2">
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        position: relative;
+        left: 40px;
+        top: 10px;
+        margin-bottom: 10px;
+        width: 150px;
+    }
+
+    button a {
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+
+    }
+
+    .sua {
+        left: -10px;
+    }
+
+    h3 {
+        position: relative;
+        left: 40px;
+        width: 500px;
+    }
+
+    .form {
+        position: relative;
+        left: 40px;
+    }
+
+    .password {
+        width: 700px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-left: 30px;
+        position: relative;
+    }
+
+    .pp {
+        left: 14px;
+    }
+
+    .xacnhan {
+        left: 0px;
+    }
+</style>
 <button><a href="../controller/tiendien.php?act=quanly">Quay lại</a></button>
 <div>
-    <button><a href="../controller/nhanvien.php?act=themnhanvien">Thêm account mới</a></button>
+    <button class="add"><a href="../controller/nhanvien.php?act=themnhanvien">Thêm account mới</a></button>
 </div>
 <?php
 if (isset($checkinfouser) && !empty($checkinfouser)) {
@@ -33,8 +94,8 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
     echo "<td> <a href='#' onclick='tChangePasswordForm()'>Đổi mật khẩu</a> </td>";
     echo "<td> 
     <form action='../controller/nhanvien.php?act=suanhanvien' method='post'> 
-        <input type='hidden' name='iduser' value='".$checkinfouser['manv']."'>
-        <button name='edituser' >Sửa </button>
+        <input type='hidden' name='iduser' value='" . $checkinfouser['manv'] . "'>
+        <button class='sua' name='edituser' >Sửa </button>
     </form>
 </td>";
     echo "</tr>";
@@ -44,13 +105,13 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
 ?>
 <div id="changePasswordForm" style="display: none;">
     <h3>Đổi mật khẩu</h3>
-    <form action="" method="post">
+    <form class="form" action="" method="post">
         <input type="hidden" name="taikhoan" value="<?php echo $checkinfouser['taikhoan']; ?>">
         <label for="newPassword">Mật khẩu cũ:</label>
-        <input type="password" name="oldPassword" id="oldPassword" required><br><br>
+        <input class="password pp" type="password" name="oldPassword" id="oldPassword" required><br><br>
         <label for="newPassword">Mật khẩu mới:</label>
-        <input type="password" name="newPassword" id="newPassword" required><br><br>
-        <button type="submit" name="changePass">Xác nhận</button>
+        <input class="password" type="password" name="newPassword" id="newPassword" required><br><br>
+        <button class="xacnhan" type="submit" name="changePass">Xác nhận</button>
     </form>
 </div>
 <script>
@@ -73,15 +134,15 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
 
     if ($checkinfouser['quyen'] == 1) {
         if (isset($show_All_NV) && !empty($show_All_NV)) {
-            $listsPerPage = isset($_GET['size']) ? (int)$_GET['size'] : 10;
-            $currentPage = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+            $listsPerPage = isset($_GET['size']) ? (int) $_GET['size'] : 10;
+            $currentPage = isset($_GET['p']) ? (int) $_GET['p'] : 1;
             $startIndex = ($currentPage - 1) * $listsPerPage; // tính sl kh ở mỗi trang và trang htai
             $filteredCustomers = array_filter($show_All_NV, function ($user) {
-                return isset($user['manv']);
+                return isset ($user['manv']);
             });
 
             // xếp mảng giảm dần theo mã
-            usort($filteredCustomers, function($a, $b) {
+            usort($filteredCustomers, function ($a, $b) {
                 return $b['manv'] <=> $a['manv'];
             });
 
@@ -138,7 +199,7 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
                         echo "<td>Quản lý</td>";
                         echo "<td> 
                         <form action='../controller/nhanvien.php?act=suanhanvien' method='post'> 
-                            <input type='hidden' name='iduser' value='".$nv['manv']."'>
+                            <input type='hidden' name='iduser' value='" . $nv['manv'] . "'>
                             <button name='edituser' >Sửa </button>
                         </form>
                     </td>";
@@ -147,22 +208,22 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
                         echo "<td>Nhân viên</td>";
                         echo "<td> 
                         <form action='../controller/nhanvien.php?act=suanhanvien' method='post'> 
-                            <input type='hidden' name='iduser' value='".$nv['manv']."'>
-                            <button name='edituser' >Sửa </button>
+                            <input type='hidden' name='iduser' value='" . $nv['manv'] . "'>
+                            <button name='edituser' class='sua' >Sửa </button>
                         </form>
                     </td>";
-                    if(kiemTraTruocXoa($nv['manv'])){
-                        echo "<td>Không thể xóa này viên này<br>do đã tồn tại trong các hóa đơn.</td>";
-                    }else{
-                    echo "<td> 
+                        if (kiemTraTruocXoa($nv['manv'])) {
+                            echo "<td>Không thể xóa này viên này<br>do đã tồn tại trong các hóa đơn.</td>";
+                        } else {
+                            echo "<td> 
                     <form id='deleteForm' method='post' action=''>
                         <input type='hidden' name='iduser' value='" . $nv['manv'] . "'>
                         <button type='submit' name='xoaNhanVien' onclick='showConfirmation()'>Xóa</button>
                     </form>
                 </td>";
+                        }
                     }
-                }
-                    
+
                     echo "</tr>";
                 }
             }
@@ -192,7 +253,7 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
             echo '</div>';
         }
     }
-   
+
 }
 ?>
 

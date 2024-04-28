@@ -1,7 +1,73 @@
-<link rel="stylesheet" href="../assets/css/themkhachhang.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+        width: 90%;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        color: #333;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: calc(100% - 10px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #333;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    button a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    button {
+        background-color: #f0f0f0;
+        border: none;
+        color: #333;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition-duration: 0.4s;
+    }
+
+    button:hover {
+        background-color: #ddd;
+    }
+</style>
 <?php
 session_start();
 
@@ -59,10 +125,7 @@ if (isset($_SESSION['id_nv'])) {
 
     <body>
         <div class="content">
-            <div class="side-bar">
-                <img src="../assets/user.jpg" alt="" width="40px" class="img">
-                <b>Xin chào, <?php echo $_SESSION['name'] ?> </b>
-            </div>
+
             <div class="manage">
                 <h1>Thêm khách hàng</h1>
                 <form name="addForm" action="../controller/xuly_themKH.php" method="post" onsubmit="return validateForm()">

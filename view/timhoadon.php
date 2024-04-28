@@ -1,7 +1,50 @@
-<link rel="stylesheet" href="../assets/css/quanlyhoadon.css">
+<link rel="stylesheet" href="../assets/css/quanlyhoadon.css?v=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .text {
+        width: 65%;
+        height: 40px;
+        text-indent: 10px;
+        position: relative;
+        left: 60px;
+    }
+
+    .subb {
+        width: 110px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+        margin-left: 10px;
+        position: relative;
+        left: 20px;
+    }
+
+    .out {
+        position: relative;
+        top: 100px;
+        width: 150px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .out a {
+        text-decoration: none;
+        color: white;
+    }
+
+    label {
+        position: relative;
+        left: 40px;
+    }
+</style>
 <?php
 
 if (isset($_SESSION['id_nv'])) {
@@ -10,8 +53,8 @@ if (isset($_SESSION['id_nv'])) {
         <h2>Tìm kiếm hóa đơn</h2>
         <form action="" method="post">
             <label for="mahd">Mã hóa đơn:</label>
-            <input type="text" id="mahd" name="mahd" placeholder="Nhập mã hóa đơn...">
-            <input type="submit" name="SearchDH" value="Tìm kiếm">
+            <input class="text" type="text" id="mahd" name="mahd" placeholder="Nhập mã hóa đơn...">
+            <input class="subb" type="submit" name="SearchDH" value="Tìm kiếm">
         </form>
     </div>
     <?php
@@ -62,7 +105,7 @@ if (isset($_SESSION['id_nv'])) {
     }
     ?>
     <br>
-    <button><a href="../controller/tiendien.php?act=quanly">Thoát</a></button>
+    <button class="out"><a href="../controller/tiendien.php?act=quanly">Thoát</a></button>
 
 <?php } else {
     header('location: ../controller/nhanvien.php?act=login');

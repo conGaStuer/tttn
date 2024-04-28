@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/cthd.css">
+<link rel="stylesheet" href="../assets/css/cthd.css?v=2">
 
 <?php
 session_start();
@@ -88,7 +88,7 @@ if (isset($_SESSION['id_nv'])) {
         </table>
         <?php
     } else {
-        echo "Không có dữ liệu phù hợp.";
+        echo "<span>Không có dữ liệu phù hợp.</span>";
     } ?>
 
     <br>
@@ -123,7 +123,7 @@ if (isset($_SESSION['id_nv'])) {
             echo '</table> ';
     }
     ?>
-        <button onclick="goBack()">Quay lại trang trước</button>
+        <button class="back" onclick="goBack()">Quay lại trang trước</button>
         <script>
             function goBack() {
                 window.history.back();

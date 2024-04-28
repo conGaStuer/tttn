@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/quanlydienke.css">
+<link rel="stylesheet" href="../assets/css/quanlydienke.css?v=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -6,6 +6,19 @@
     h1 {
         margin: 10px auto;
         text-align: center;
+    }
+
+    .fafawf {
+        background-color: rgb(31, 61, 87);
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .fafawf a {
+        position: relative;
+        left: -5px;
+        text-decoration: none;
     }
 </style>
 <?php
@@ -90,7 +103,9 @@ if (isset($_SESSION['id_nv'])) {
                     <td><?php echo $khachhang['dt']; ?></td>
                     <td><?php echo $khachhang['cccd']; ?></td>
                     <td>
-                        <button class="sua" href="../view/suakhachhang.php?makh=<?php echo $khachhang['makh']; ?>">Sửa</button>
+                        <button class="fafawf">
+                            <a class="sua" href="../view/suakhachhang.php?makh=<?php echo $khachhang['makh']; ?>">Sửa</a>
+                        </button>
                     </td>
                     <?php if (!checkXoaKH($khachhang['makh'])) { ?>
                         <td><button class="xoa" href="../controller/xuly_xoaKH.php?makh=<?php echo $khachhang['makh']; ?>"

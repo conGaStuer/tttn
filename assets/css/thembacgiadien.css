@@ -2,6 +2,9 @@
   --text-color-bold: #333;
   --text-color-light: #a7a9a8;
 }
+body {
+  overflow-y: hidden;
+}
 span {
   font-size: 40px;
   margin: 0;
