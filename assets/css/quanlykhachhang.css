@@ -53,3 +53,17 @@ table th {
 table td {
   text-align: center;
 }
+.navi {
+  margin: 20px 15px;
+  position: relative;
+  left: 660px;
+
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-color-bold);
+  color: white;
+}
+.navi a {
+  text-decoration: none;
+  color: white;
+}

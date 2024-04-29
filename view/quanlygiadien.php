@@ -1,7 +1,10 @@
-<link rel="stylesheet" href="../assets/css/quanlygiadien.css">
+<link rel="stylesheet" href="../assets/css/quanlygiadien.css?v=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+
+</style>
 <?php
 session_start();
 
@@ -134,19 +137,19 @@ if (isset($_SESSION['id_nv'])) {
                 if ($totalPages > 1) {
                     echo '<div></div><div>';
                     if ($currentPage > 1) {
-                        echo '<a class="navi"  href="?act=quanlygiadien&p=' . ($currentPage - 1) . '&size=' . $invoicesPerPage . '">&lt;</a>';
+                        echo '<button class="navi"><a   href="?act=quanlygiadien&p=' . ($currentPage - 1) . '&size=' . $invoicesPerPage . '">&lt;</a></button>';
                     }
                     $start = max(1, $currentPage - 1);
                     $end = min($totalPages, $start + 3);
                     for ($i = $start; $i <= $end; $i++) {
                         if ($i == $currentPage) {
-                            echo '<span>' . $i . '</span>';
+                            echo '<button class="navi"><span>' . $i . '</span></button>';
                         } else {
-                            echo '<a  class="navi" href="?act=quanlygiadien&p=' . $i . '&size=' . $invoicesPerPage . '">' . $i . '</a>';
+                            echo '<button class="navi"><a   href="?act=quanlygiadien&p=' . $i . '&size=' . $invoicesPerPage . '">' . $i . '</a></button>';
                         }
                     }
                     if ($currentPage < $totalPages) {
-                        echo '<a class="navi" href="?act=quanlygiadien&p=' . ($currentPage + 1) . '&size=' . $invoicesPerPage . '">&gt;</a>';
+                        echo '<button class="navi"><a  href="?act=quanlygiadien&p=' . ($currentPage + 1) . '&size=' . $invoicesPerPage . '">&gt;</a></button>';
                     }
 
                     echo '</div>';

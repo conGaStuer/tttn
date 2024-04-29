@@ -2,9 +2,7 @@
   --text-color-bold: #333;
   --text-color-light: #a7a9a8;
 }
-body {
-  overflow-y: hidden;
-}
+
 span {
   font-size: 40px;
   margin: 0;
@@ -37,6 +35,8 @@ label {
   width: 280px;
   height: 100vh;
   background-color: var(--text-color-bold);
+  position: sticky;
+  top: 0;
 }
 .img {
   width: 180px;

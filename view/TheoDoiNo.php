@@ -1,3 +1,10 @@
+<style>
+    .close {
+        position: relative;
+        left: 0px;
+
+    }
+</style>
 <?php
 if (isset($_SESSION['id_nv'])) {
     ?>

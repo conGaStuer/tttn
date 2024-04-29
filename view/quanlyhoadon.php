@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/quanlyhoadon.css">
+    <link rel="stylesheet" href="../assets/css/quanlyhoadon.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -106,19 +106,19 @@
                     if ($totalPages > 1) {
                         echo '<div></div><div>';
                         if ($currentPage > 1) {
-                            echo '<a class="navi"  href="?act=quanlyhoadon&p=' . ($currentPage - 1) . '&size=' . $billsPerPage . '">&lt;</a>';
+                            echo '<button class="navi"><a  href="?act=quanlyhoadon&p=' . ($currentPage - 1) . '&size=' . $billsPerPage . '">&lt;</a></button>';
                         }
                         $start = max(1, $currentPage - 1);
                         $end = min($totalPages, $start + 3);
                         for ($i = $start; $i <= $end; $i++) {
                             if ($i == $currentPage) {
-                                echo '<span>' . $i . '</span>';
+                                echo '<button class="navi"><span>' . $i . '</span></button>';
                             } else {
-                                echo '<a class="navi" href="?act=quanlyhoadon&p=' . $i . '&size=' . $billsPerPage . '">' . $i . '</a>';
+                                echo '<button class="navi"><a href="?act=quanlyhoadon&p=' . $i . '&size=' . $billsPerPage . '">' . $i . '</a></button>';
                             }
                         }
                         if ($currentPage < $totalPages) {
-                            echo '<a  class="navi" href="?act=quanlyhoadon&p=' . ($currentPage + 1) . '&size=' . $billsPerPage . '">&gt;</a>';
+                            echo '<button class="navi"><a   href="?act=quanlyhoadon&p=' . ($currentPage + 1) . '&size=' . $billsPerPage . '">&gt;</a></button>';
                         }
 
                         echo '</div>';

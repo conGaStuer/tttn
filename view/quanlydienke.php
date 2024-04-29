@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/quanlydienke.css?v=1">
+<link rel="stylesheet" href="../assets/css/quanlydienke.css?v=3">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -170,20 +170,20 @@ if (isset($_SESSION['id_nv'])) {
                 echo '<div></div>
                 <div>';
                 if ($currentPage > 1) {
-                    echo '<a class="navi" href="?act=quanlydienke&p=' . ($currentPage - 1) . '&size=' . $listsPerPage . '">&lt;</a>';
+                    echo '<button class="navi"><a href="?act=quanlydienke&p=' . ($currentPage - 1) . '&size=' . $listsPerPage . '">&lt;</a></button>';
                 }
                 // Tính & hiện các liên kết phân trang
                 $start = max(1, $currentPage - 1);
                 $end = min($totalPages, $start + 3);
                 for ($i = $start; $i <= $end; $i++) {
                     if ($i == $currentPage) {
-                        echo '<span >' . $i . '</span>';
+                        echo '<button class="navi"><span >' . $i . '</span></button>';
                     } else {
-                        echo '<a class="navi" href="?act=quanlydienke&p=' . $i . '&size=' . $listsPerPage . '">' . $i . '</a>';
+                        echo '<button class="navi"><a href="?act=quanlydienke&p=' . $i . '&size=' . $listsPerPage . '">' . $i . '</a></button>';
                     }
                 }
                 if ($currentPage < $totalPages) {
-                    echo '<a  class="navi" href="?act=quanlydienke&p=' . ($currentPage + 1) . '&size=' . $listsPerPage . '">&gt;</a>';
+                    echo '<button class="navi"><a href="?act=quanlydienke&p=' . ($currentPage + 1) . '&size=' . $listsPerPage . '">&gt;</a></button>';
                 }
                 echo '</div>';
             }

@@ -87,13 +87,13 @@ if (isset($_SESSION['id_nv'])) {
                         <td>' . $search_DH['ngaylaphd'] . '</td>';
             if ($search_DH['tinhtrang'] == 0) {
                 echo '<td>Chưa thanh toán</td>';
-                echo '<td><a href="../controller/tracuu.php?act=cthd&mahd=' . $search_DH['mahd'] . '">Xem chi tiết hóa đơn</a></td>';
-                echo '<td><a href="../controller/tiendien.php?act=in&mahd=' . $search_DH['mahd'] . '">In giấy báo điện</a></td>';
+                echo '<td><a style="color:red;" href="../controller/tracuu.php?act=cthd&mahd=' . $search_DH['mahd'] . '">Xem chi tiết hóa đơn</a></td>';
+                echo '<td><a style="color:green;" href="../controller/tiendien.php?act=in&mahd=' . $search_DH['mahd'] . '">In giấy báo điện</a></td>';
                 echo '<td><a name="hoanthanh"  href="../controller/tiendien.php?act=tinhdien&action=dathanhtoan&code=' . $search_DH['mahd'] . '">Đã thanh toán</a> </td>';
             } else {
                 echo '<td>Đã thanh toán</td>';
-                echo '<td><a href="../controller/tracuu.php?act=cthd&mahd=' . $search_DH['mahd'] . '">Xem chi tiết hóa đơn</a></td>';
-                echo '<td><a href="../controller/tiendien.php?act=in&mahd=' . $search_DH['mahd'] . '">In hóa đơn</a> </td>';
+                echo '<td><a style="color:red;" href="../controller/tracuu.php?act=cthd&mahd=' . $search_DH['mahd'] . '">Xem chi tiết hóa đơn</a></td>';
+                echo '<td><a style="color:green;" href="../controller/tiendien.php?act=in&mahd=' . $search_DH['mahd'] . '">In hóa đơn</a> </td>';
             }
             echo '</tr> 
                 </table';

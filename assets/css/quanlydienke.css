@@ -106,3 +106,24 @@ table th {
   margin-top: 10px;
   color: white;
 }
+.navi {
+  margin: 20px 15px;
+  position: relative;
+  left: 660px;
+  border: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-color-bold);
+  color: white;
+}
+
+.navi a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+.navi span {
+  font-size: 12px;
+}

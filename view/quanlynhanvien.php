@@ -58,6 +58,11 @@
     .xacnhan {
         left: 0px;
     }
+
+    .sua {
+        position: relative;
+        left: 0px;
+    }
 </style>
 <button><a href="../controller/tiendien.php?act=quanly">Quay lại</a></button>
 <div>
@@ -200,7 +205,7 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
                         echo "<td> 
                         <form action='../controller/nhanvien.php?act=suanhanvien' method='post'> 
                             <input type='hidden' name='iduser' value='" . $nv['manv'] . "'>
-                            <button name='edituser' >Sửa </button>
+                            <button class='sua' name='edituser' >Sửa </button>
                         </form>
                     </td>";
                         echo "<td>Người này là quản lý<br>không thể xóa</td>";
@@ -218,7 +223,7 @@ if (isset($checkinfouser) && !empty($checkinfouser)) {
                             echo "<td> 
                     <form id='deleteForm' method='post' action=''>
                         <input type='hidden' name='iduser' value='" . $nv['manv'] . "'>
-                        <button type='submit' name='xoaNhanVien' onclick='showConfirmation()'>Xóa</button>
+                        <button type='submit' class='sua' name='xoaNhanVien' onclick='showConfirmation()'>Xóa</button>
                     </form>
                 </td>";
                         }

@@ -3,6 +3,7 @@
   --text-color-light: #a7a9a8;
   --td-color: #74c0fc;
 }
+
 body {
   color: var(--text-color-bold);
 }
@@ -63,9 +64,20 @@ th {
   color: white;
 }
 .navi {
+  margin: 20px 15px;
+  position: relative;
+  left: 660px;
+  border: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-color-bold);
+  color: white;
+}
+
+.navi a {
+  font-weight: bold;
   text-decoration: none;
-  font-size: 25px;
-  color: var(--text-color-bold);
-  text-align: center;
-  margin: 10px;
+  color: white;
+  font-size: 12px;
 }
